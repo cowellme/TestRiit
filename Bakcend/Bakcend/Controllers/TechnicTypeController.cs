@@ -19,7 +19,7 @@ namespace Backend.Controllers
         {
             var items = await service.GetAll(ct);
             logger.LogInformation("Успешное получение списка типов техники");
-            return items is { Count: > 0 } ? Ok(items.Select(t => t.ToDto()).ToList()) : NotFound(new { title = "Типы техники не найдены" });
+            return Ok(items.Select(t => t.ToDto()).ToList());
         }
 
         /// <summary>Добавление типов техники</summary>
@@ -46,6 +46,8 @@ namespace Backend.Controllers
             try
             {
                 var entity = request.ToEntity();
+                entity.Id = id;
+
                 if (id != entity.Id)
                 {
                     var message = "ID не совпадает";

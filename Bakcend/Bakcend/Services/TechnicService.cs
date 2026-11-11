@@ -38,7 +38,7 @@ namespace Backend.Services
 
         public async Task AddRange(List<Technic> found, CancellationToken cancellationToken)
         {
-            if (await repository.CountAsync(cancellationToken) + found.Count >= 2000)
+            if (await repository.CountAsync(cancellationToken) + found.Count > 2000)
             {
                 throw new InvalidOperationException("Лимит не более 2000 записей");
             }

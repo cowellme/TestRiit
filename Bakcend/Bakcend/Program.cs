@@ -1,10 +1,4 @@
-using System.Reflection;
 using Backend.Extensions;
-using Backend.Services;
-using Bakcend.Data;
-using Microsoft.EntityFrameworkCore;
-using Microsoft.OpenApi;
-using Serilog;
 
 namespace Bakcend
 {

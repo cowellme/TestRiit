@@ -20,7 +20,7 @@ namespace Backend.Controllers
         {
             var items = await service.GetAll(ct);
             logger.LogInformation("Успешное получение списка техники");
-            return items is { Count: > 0 } ? Ok(items.Select(t => t.ToDto()).ToList()) : NotFound(new { title = "Техника не найдена" });
+            return Ok(items.Select(t => t.ToDto()).ToList());
         }
 
         /// <summary>Получение техники по ID</summary>
@@ -30,7 +30,7 @@ namespace Backend.Controllers
             try
             {
                 var item = await service.GetById(id, ct);
-                return item is null ? NotFound("Такого ID не существует") : Ok(item);
+                return item is null ? NotFound("Такого ID не существует") : Ok(item.ToDto());
             }
             catch (Exception ex)
             {
@@ -68,6 +68,7 @@ namespace Backend.Controllers
             try
             {
                 var entity = request.ToEntity();
+                entity.Id = id;
                 if (id != entity.Id)
                 {
                     const string message = "ID не совпадает";
