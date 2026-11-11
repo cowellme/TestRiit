@@ -1,3 +1,4 @@
+using Backend.Dtos;
 using Backend.Models;
 using Backend.Services;
 using Microsoft.AspNetCore.Mvc;
@@ -14,22 +15,22 @@ namespace Backend.Controllers
     {
         /// <summary>Список всех типов</summary>
         [HttpGet]
-        public async Task<ActionResult<IReadOnlyList<TechnicType>>> GetAll(CancellationToken ct)
+        public async Task<ActionResult<IReadOnlyList<TechnicTypeDto>>> GetAll(CancellationToken ct)
         {
             var items = await service.GetAll(ct);
             logger.LogInformation("Успешное получение списка типов техники");
-            return items is { Count: > 0 } ? Ok(items) : NotFound(new { title = "Типы техники не найдены" });
+            return items is { Count: > 0 } ? Ok(items.Select(t => t.ToDto()).ToList()) : NotFound(new { title = "Типы техники не найдены" });
         }
 
         /// <summary>Добавление типов техники</summary>
         [HttpPost]
-        public async Task<ActionResult<Technic>> Create(TechnicType item, CancellationToken ct)
+        public async Task<ActionResult<TechnicTypeDto>> Create(CreateTechnicTypeRequest request, CancellationToken ct)
         {
             try
             {
-                var created = await service.Add(item, ct);
+                var created = await service.Add(request.ToEntity(), ct);
                 logger.LogInformation("Успешное добавление типа техники");
-                return Ok(created);
+                return Ok(created.ToDto());
             }
             catch (Exception ex)
             {
@@ -40,20 +41,21 @@ namespace Backend.Controllers
 
         /// <summary>Обновление типов техники</summary>
         [HttpPut("{id:int}")]
-        public async Task<IActionResult> Update(int id, TechnicType item, CancellationToken ct)
+        public async Task<IActionResult> Update(int id, CreateTechnicTypeRequest request, CancellationToken ct)
         {
             try
             {
-                if (id != item.Id)
+                var entity = request.ToEntity();
+                if (id != entity.Id)
                 {
                     var message = "ID не совпадает";
                     logger.LogWarning(message);
                     return BadRequest(new { title = message });
                 }
 
-                await service.Update(item, ct);
+                await service.Update(entity, ct);
                 logger.LogInformation("Успешное обновление типа техники");
-                return Ok(item);
+                return Ok(entity.ToDto());
             }
             catch (Exception ex)
             {
