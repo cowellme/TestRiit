@@ -169,3 +169,16 @@ body {
     border-color: #1ebe5d !important;
     color: #ffffff;
 }
+
+.btn-github {
+    margin-top: 20px;
+    background: #24292f !important;
+    border-color: #24292f !important;
+    color: #ffffff;
+}
+
+.btn-github:hover {
+    background: #1f2328 !important;
+    border-color: #24292f !important;
+    color: #ffffff;
+}
