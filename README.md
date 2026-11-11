@@ -1,6 +1,8 @@
 # Модуль ведения БД компьютерной техники
 
-Клиент-серверное приложение для учёта компьютерной техники (учётный номер, наименование, тип техники, номер комнаты размещения).
+Посмотреть: https://test-riit.lumenustech.ru
+
+Клиент-серверное приложение для учёта техники (учётный номер, наименование, тип техники, номер комнаты размещения).
 
 ## Стек
 
@@ -14,7 +16,7 @@
 ## Структура
 
 - `Bakcend/` — REST API (`/api/technic` CRUD, `/api/technicType` справочник типов)
-- `Frontend/` — SPA на DevExtreme (`index.html`, `js/app.js`, `css/styles.css`)
+- `Frontend/` — DevExtreme (`index.html`, `js/app.js`, `css/styles.css`)
 - `docker-compose.yml` — сервисы `db`, `backend`, `client`
 - `nginx.conf` — конфиг nginx для клиента
 
@@ -27,7 +29,7 @@ docker compose up -d --build
 | Что        | Адрес                                   |
 |------------|-----------------------------------------|
 | Клиент     | http://localhost:8090                   |
-| API        | http://localhost:8080/api/technic      |
+| API        | http://localhost:8082/api/technic      |
 | PostgreSQL | localhost:5432 (hardware / hardware)    |
 
 Схема БД применяется автоматически при старте backend через EF Core Migrations (`Database.Migrate()`), после чего, если словарь типов пуст, он заполняется демо-позициями (`DatabaseInitializer`).
