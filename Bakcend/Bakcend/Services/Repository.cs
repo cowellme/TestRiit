@@ -5,7 +5,7 @@ namespace Backend.Services
 {
     public interface IRepository<TEntity, in TKey> where TEntity : class where TKey : notnull
     {
-
+        Task<int> CountAsync(CancellationToken cancellationToken);
         Task<List<TEntity>> GetAllAsync(CancellationToken cancellationToken = default);
 
         ValueTask<TEntity?> GetByIdAsync(TKey id, CancellationToken cancellationToken = default);
@@ -21,9 +21,6 @@ namespace Backend.Services
         where TEntity : class
         where TKey : notnull
     {
-        
-        // Подключаем навигационные свойства-ссылки (не коллекции),
-        // чтобы в ответах API были заполнены вложенные объекты (Technic.TechnicType)
         private IQueryable<TEntity> WithReferences()
         {
             var entityType = db.Model.FindEntityType(typeof(TEntity))!;
@@ -88,5 +85,8 @@ namespace Backend.Services
             await db.Set<TEntity>().AddRangeAsync(entities, ct);
             await db.SaveChangesAsync(ct);
         }
+
+        public async Task<int> CountAsync(CancellationToken cancellationToken) =>
+            await db.Set<TEntity>().CountAsync(cancellationToken);
     }
 }

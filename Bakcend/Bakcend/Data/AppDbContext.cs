@@ -14,9 +14,6 @@ public class AppDbContext : DbContext
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
-        // Имена таблиц заданы атрибутами [Table]: "Equipment" и "TechnicTypes"
-
-        // Справочник типов техники
         modelBuilder.Entity<TechnicType>().HasData(
             new TechnicType { Id = 1, Name = "Системный блок" },
             new TechnicType { Id = 2, Name = "Монитор" },
@@ -24,7 +21,8 @@ public class AppDbContext : DbContext
             new TechnicType { Id = 4, Name = "Принтер/МФУ" },
             new TechnicType { Id = 5, Name = "Сетевое оборудование" });
 
-        // Демонстрационные записи техники
+
+        modelBuilder.Entity<Technic>().HasIndex(t => t.AccountNumber).IsUnique();
         modelBuilder.Entity<Technic>().HasData(
             new Technic { Id = 1, AccountNumber = "PC001", Name = "ПК офисный №1", TechnicTypeId = 1, RoomNumber = 101 },
             new Technic { Id = 2, AccountNumber = "PC002", Name = "ПК офисный №2", TechnicTypeId = 1, RoomNumber = 102 },

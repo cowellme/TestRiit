@@ -1,6 +1,7 @@
 using Backend.Models;
 using Backend.Services;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
 namespace Backend.Controllers
 {
@@ -27,7 +28,7 @@ namespace Backend.Controllers
             }
             catch (Exception ex)
             {
-                return BadRequest(ex);
+                return BadRequest(new { title = ex.Message});
             }
         }
 
@@ -40,9 +41,13 @@ namespace Backend.Controllers
                 var created = await service.Add(item, ct);
                 return Ok(created);
             }
+            catch (DbUpdateException)
+            {
+                return Conflict(new { title = "Учётный номер уже существует" });
+            }
             catch (Exception ex)
             {
-                return BadRequest(ex);
+                return BadRequest(new { title = ex.Message });
             }
         }
 
@@ -62,7 +67,7 @@ namespace Backend.Controllers
             }
             catch (Exception ex)
             {
-                return BadRequest(ex);
+                return BadRequest(new { title = ex.Message });
             }
         }
 
@@ -77,7 +82,7 @@ namespace Backend.Controllers
             }
             catch (Exception ex)
             {
-                return BadRequest(ex);
+                return BadRequest(new { title = ex.Message });
             }
         }
     }

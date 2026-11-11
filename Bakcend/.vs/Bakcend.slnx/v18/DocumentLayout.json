@@ -3,44 +3,20 @@
   "WorkspaceRootPath": "C:\\Users\\user\\Desktop\\RIIT\\Bakcend\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{5F26D6DB-3231-4F9B-AAFF-A67463E2B2EC}|Bakcend\\Backend.csproj|c:\\users\\user\\desktop\\riit\\bakcend\\bakcend\\services\\technictypeservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{5F26D6DB-3231-4F9B-AAFF-A67463E2B2EC}|Bakcend\\Backend.csproj|solutionrelative:bakcend\\services\\technictypeservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{D6DFDC62-5640-4991-B67C-517D96927FB8}|Bakcend\\Backend.csproj|c:\\users\\user\\desktop\\riit\\bakcend\\bakcend\\controllers\\technictypecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D6DFDC62-5640-4991-B67C-517D96927FB8}|Bakcend\\Backend.csproj|solutionrelative:bakcend\\controllers\\technictypecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{5F26D6DB-3231-4F9B-AAFF-A67463E2B2EC}|Bakcend\\Backend.csproj|c:\\users\\user\\desktop\\riit\\bakcend\\bakcend\\services\\technicservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{5F26D6DB-3231-4F9B-AAFF-A67463E2B2EC}|Bakcend\\Backend.csproj|solutionrelative:bakcend\\services\\technicservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{D6DFDC62-5640-4991-B67C-517D96927FB8}|Bakcend\\Backend.csproj|c:\\users\\user\\desktop\\riit\\bakcend\\bakcend\\controllers\\techniccontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D6DFDC62-5640-4991-B67C-517D96927FB8}|Bakcend\\Backend.csproj|solutionrelative:bakcend\\controllers\\techniccontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{5F26D6DB-3231-4F9B-AAFF-A67463E2B2EC}|Bakcend\\Backend.csproj|c:\\users\\user\\desktop\\riit\\bakcend\\bakcend\\controllers\\technictypecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{5F26D6DB-3231-4F9B-AAFF-A67463E2B2EC}|Bakcend\\Backend.csproj|solutionrelative:bakcend\\controllers\\technictypecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{D6DFDC62-5640-4991-B67C-517D96927FB8}|Bakcend\\Backend.csproj|c:\\users\\user\\desktop\\riit\\bakcend\\bakcend\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D6DFDC62-5640-4991-B67C-517D96927FB8}|Bakcend\\Backend.csproj|solutionrelative:bakcend\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{5F26D6DB-3231-4F9B-AAFF-A67463E2B2EC}|Bakcend\\Backend.csproj|c:\\users\\user\\desktop\\riit\\bakcend\\bakcend\\models\\technictype.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{5F26D6DB-3231-4F9B-AAFF-A67463E2B2EC}|Bakcend\\Backend.csproj|solutionrelative:bakcend\\models\\technictype.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{5F26D6DB-3231-4F9B-AAFF-A67463E2B2EC}|Bakcend\\Backend.csproj|c:\\users\\user\\desktop\\riit\\bakcend\\bakcend\\controllers\\techniccontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{5F26D6DB-3231-4F9B-AAFF-A67463E2B2EC}|Bakcend\\Backend.csproj|solutionrelative:bakcend\\controllers\\techniccontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{5F26D6DB-3231-4F9B-AAFF-A67463E2B2EC}|Bakcend\\Bakcend.csproj|c:\\users\\user\\desktop\\riit\\bakcend\\bakcend\\models\\technic.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{5F26D6DB-3231-4F9B-AAFF-A67463E2B2EC}|Bakcend\\Bakcend.csproj|solutionrelative:bakcend\\models\\technic.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{5F26D6DB-3231-4F9B-AAFF-A67463E2B2EC}|Bakcend\\Backend.csproj|c:\\users\\user\\desktop\\riit\\bakcend\\bakcend\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{5F26D6DB-3231-4F9B-AAFF-A67463E2B2EC}|Bakcend\\Backend.csproj|solutionrelative:bakcend\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{5F26D6DB-3231-4F9B-AAFF-A67463E2B2EC}|Bakcend\\Backend.csproj|c:\\users\\user\\desktop\\riit\\bakcend\\bakcend\\data\\appdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{5F26D6DB-3231-4F9B-AAFF-A67463E2B2EC}|Bakcend\\Backend.csproj|solutionrelative:bakcend\\data\\appdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{5F26D6DB-3231-4F9B-AAFF-A67463E2B2EC}|Bakcend\\Backend.csproj|c:\\users\\user\\desktop\\riit\\bakcend\\bakcend\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
-      "RelativeMoniker": "D:0:0:{5F26D6DB-3231-4F9B-AAFF-A67463E2B2EC}|Bakcend\\Backend.csproj|solutionrelative:bakcend\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{5F26D6DB-3231-4F9B-AAFF-A67463E2B2EC}|Bakcend\\Backend.csproj|c:\\users\\user\\desktop\\riit\\bakcend\\bakcend\\services\\repository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{5F26D6DB-3231-4F9B-AAFF-A67463E2B2EC}|Bakcend\\Backend.csproj|solutionrelative:bakcend\\services\\repository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{D6DFDC62-5640-4991-B67C-517D96927FB8}|Bakcend\\Backend.csproj|c:\\users\\user\\desktop\\riit\\bakcend\\bakcend\\services\\technictypeservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D6DFDC62-5640-4991-B67C-517D96927FB8}|Bakcend\\Backend.csproj|solutionrelative:bakcend\\services\\technictypeservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -50,66 +26,8 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 2,
+          "SelectedChildIndex": 7,
           "Children": [
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "Technic.cs",
-              "DocumentMoniker": "C:\\Users\\user\\Desktop\\RIIT\\Bakcend\\Bakcend\\Models\\Technic.cs",
-              "RelativeDocumentMoniker": "Bakcend\\Models\\Technic.cs",
-              "ToolTip": "C:\\Users\\user\\Desktop\\RIIT\\Bakcend\\Bakcend\\Models\\Technic.cs",
-              "RelativeToolTip": "Bakcend\\Models\\Technic.cs",
-              "ViewState": "AgIAABEAAAAAAAAAAAA9wCoAAAAPAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-11-11T07:02:14.239Z",
-              "IsPinned": true,
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "TechnicType.cs",
-              "DocumentMoniker": "C:\\Users\\user\\Desktop\\RIIT\\Bakcend\\Bakcend\\Models\\TechnicType.cs",
-              "RelativeDocumentMoniker": "Bakcend\\Models\\TechnicType.cs",
-              "ToolTip": "C:\\Users\\user\\Desktop\\RIIT\\Bakcend\\Bakcend\\Models\\TechnicType.cs",
-              "RelativeToolTip": "Bakcend\\Models\\TechnicType.cs",
-              "ViewState": "AgIAAAMAAAAAAAAAAAAAABMAAAALAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-11-11T08:23:06.3Z",
-              "IsPinned": true,
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "TechnicTypeService.cs",
-              "DocumentMoniker": "C:\\Users\\user\\Desktop\\RIIT\\Bakcend\\Bakcend\\Services\\TechnicTypeService.cs",
-              "RelativeDocumentMoniker": "Bakcend\\Services\\TechnicTypeService.cs",
-              "ToolTip": "C:\\Users\\user\\Desktop\\RIIT\\Bakcend\\Bakcend\\Services\\TechnicTypeService.cs",
-              "RelativeToolTip": "Bakcend\\Services\\TechnicTypeService.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABYAAAAoAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-11-11T11:28:47.932Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "TechnicTypeController.cs",
-              "DocumentMoniker": "C:\\Users\\user\\Desktop\\RIIT\\Bakcend\\Bakcend\\Controllers\\TechnicTypeController.cs",
-              "RelativeDocumentMoniker": "Bakcend\\Controllers\\TechnicTypeController.cs",
-              "ToolTip": "C:\\Users\\user\\Desktop\\RIIT\\Bakcend\\Bakcend\\Controllers\\TechnicTypeController.cs",
-              "RelativeToolTip": "Bakcend\\Controllers\\TechnicTypeController.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAmAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-11-11T11:27:31.878Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{aa2115a1-9712-457b-9047-dbb71ca2cdd2}"
-            },
             {
               "$type": "Bookmark",
               "Name": "ST:129:0:{75c83ab3-5264-45e8-ad32-5c8a41ad477d}"
@@ -132,80 +50,54 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "Program.cs",
-              "DocumentMoniker": "C:\\Users\\user\\Desktop\\RIIT\\Bakcend\\Bakcend\\Program.cs",
-              "RelativeDocumentMoniker": "Bakcend\\Program.cs",
-              "ToolTip": "C:\\Users\\user\\Desktop\\RIIT\\Bakcend\\Bakcend\\Program.cs",
-              "RelativeToolTip": "Bakcend\\Program.cs",
-              "ViewState": "AgIAABMAAAAAAAAAAAAqwA8AAAAqAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-11-11T07:55:12.815Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "TechnicService.cs",
-              "DocumentMoniker": "C:\\Users\\user\\Desktop\\RIIT\\Bakcend\\Bakcend\\Services\\TechnicService.cs",
-              "RelativeDocumentMoniker": "Bakcend\\Services\\TechnicService.cs",
-              "ToolTip": "C:\\Users\\user\\Desktop\\RIIT\\Bakcend\\Bakcend\\Services\\TechnicService.cs",
-              "RelativeToolTip": "Bakcend\\Services\\TechnicService.cs",
-              "ViewState": "AgIAAAgAAAAAAAAAAAAUwCMAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-11-11T07:49:35.302Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 9,
-              "Title": "Repository.cs",
-              "DocumentMoniker": "C:\\Users\\user\\Desktop\\RIIT\\Bakcend\\Bakcend\\Services\\Repository.cs",
-              "RelativeDocumentMoniker": "Bakcend\\Services\\Repository.cs",
-              "ToolTip": "C:\\Users\\user\\Desktop\\RIIT\\Bakcend\\Bakcend\\Services\\Repository.cs",
-              "RelativeToolTip": "Bakcend\\Services\\Repository.cs",
-              "ViewState": "AgIAAAYAAAAAAAAAAAAQwE8AAAAdAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-11-11T07:34:41.573Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
               "Title": "TechnicController.cs",
               "DocumentMoniker": "C:\\Users\\user\\Desktop\\RIIT\\Bakcend\\Bakcend\\Controllers\\TechnicController.cs",
               "RelativeDocumentMoniker": "Bakcend\\Controllers\\TechnicController.cs",
               "ToolTip": "C:\\Users\\user\\Desktop\\RIIT\\Bakcend\\Bakcend\\Controllers\\TechnicController.cs",
               "RelativeToolTip": "Bakcend\\Controllers\\TechnicController.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAcAAAAAAAAAA==",
+              "ViewState": "AgIAADsAAAAAAAAAAAAIwFYAAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-11-11T07:31:57.853Z",
+              "WhenOpened": "2026-11-11T14:01:36.6Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "appsettings.json",
-              "DocumentMoniker": "C:\\Users\\user\\Desktop\\RIIT\\Bakcend\\Bakcend\\appsettings.json",
-              "RelativeDocumentMoniker": "Bakcend\\appsettings.json",
-              "ToolTip": "C:\\Users\\user\\Desktop\\RIIT\\Bakcend\\Bakcend\\appsettings.json",
-              "RelativeToolTip": "Bakcend\\appsettings.json",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAABMAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2026-11-11T07:25:48.507Z",
+              "DocumentIndex": 2,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\user\\Desktop\\RIIT\\Bakcend\\Bakcend\\Program.cs",
+              "RelativeDocumentMoniker": "Bakcend\\Program.cs",
+              "ToolTip": "C:\\Users\\user\\Desktop\\RIIT\\Bakcend\\Bakcend\\Program.cs",
+              "RelativeToolTip": "Bakcend\\Program.cs",
+              "ViewState": "AgIAABMAAAAAAAAAAAAgwDAAAABFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-11-11T14:00:02.188Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "AppDbContext.cs",
-              "DocumentMoniker": "C:\\Users\\user\\Desktop\\RIIT\\Bakcend\\Bakcend\\Data\\AppDbContext.cs",
-              "RelativeDocumentMoniker": "Bakcend\\Data\\AppDbContext.cs",
-              "ToolTip": "C:\\Users\\user\\Desktop\\RIIT\\Bakcend\\Bakcend\\Data\\AppDbContext.cs",
-              "RelativeToolTip": "Bakcend\\Data\\AppDbContext.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAVAAAAAAAAAA==",
+              "DocumentIndex": 0,
+              "Title": "TechnicTypeController.cs",
+              "DocumentMoniker": "C:\\Users\\user\\Desktop\\RIIT\\Bakcend\\Bakcend\\Controllers\\TechnicTypeController.cs",
+              "RelativeDocumentMoniker": "Bakcend\\Controllers\\TechnicTypeController.cs",
+              "ToolTip": "C:\\Users\\user\\Desktop\\RIIT\\Bakcend\\Bakcend\\Controllers\\TechnicTypeController.cs",
+              "RelativeToolTip": "Bakcend\\Controllers\\TechnicTypeController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAATAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-11-11T07:24:01.834Z",
+              "WhenOpened": "2026-11-11T13:49:57.593Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "TechnicTypeService.cs",
+              "DocumentMoniker": "C:\\Users\\user\\Desktop\\RIIT\\Bakcend\\Bakcend\\Services\\TechnicTypeService.cs",
+              "RelativeDocumentMoniker": "Bakcend\\Services\\TechnicTypeService.cs",
+              "ToolTip": "C:\\Users\\user\\Desktop\\RIIT\\Bakcend\\Bakcend\\Services\\TechnicTypeService.cs",
+              "RelativeToolTip": "Bakcend\\Services\\TechnicTypeService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-11-11T13:49:53.881Z",
               "EditorCaption": ""
             }
           ]

@@ -44,7 +44,9 @@ namespace Bakcend
 
 
             builder.Services.AddScoped(typeof(IRepository<,>), typeof(Repository<,>));
+            builder.Services.AddScoped<ITechnicTypeService, TechnicTypeService>();
             builder.Services.AddScoped<ITechnicService, TechnicService>();
+            builder.Services.AddHostedService<DatabaseInitializer>();
 
 
             var app = builder.Build();
@@ -64,12 +66,6 @@ namespace Bakcend
             app.UseAuthorization();
 
             app.MapControllers();
-
-            using (var scope = app.Services.CreateScope())
-            {
-                var db = scope.ServiceProvider.GetRequiredService<AppDbContext>();
-                db.Database.EnsureCreated();
-            }
 
             app.Run();
         }

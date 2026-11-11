@@ -9,96 +9,34 @@
     <link rel="stylesheet" href="https://cdn3.devexpress.com/jslib/25.1.15/css/dx.light.css">
     <script src="https://cdn3.devexpress.com/jslib/25.1.15/js/dx.all.js"></script>
     <link rel="stylesheet" href="css/styles.css">
-    <link rel="stylesheet" href="css/table.css">
-    <link rel="stylesheet" href="css/form.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap"
         rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
 
 <body class="dx-viewport">
     <div class="header">
         <div class="header-links">
-            <a class="link" href="./catalog/page-catalog.html">Каталог</a>
-            <a class="link" href="./catalog/page-form.html">Форма</a>
-            <a class="link" href="./catalog/page-contacts.html">Контакты</a>
+            <a class="link" href="./p/page-catalog.html">Каталог</a>
+            <a class="link" href="./p/page-contacts.html">Контакты</a>
+            <a class="link end-line" href="http://localhost:8080/swagger/index.html">Swagger</a>
         </div>
     </div>
 
     <div class="app">
-        <div class="table-wrapper">
-            <div class="table-toolbar">
-                <h2 class="table-header">Техника</h2>
-                <button id="addTechnicBtn" type="button" class="btn btn-primary">Добавить</button>
-            </div>
-            <div class="table-wrapper">
-                <table id="technicTable" class="table">
-                    <thead>
-                        <tr>
-                            <th data-sort="account">Учётный номер</th>
-                            <th data-sort="type">Тип техники</th>
-                            <th data-sort="name">Наименование</th>
-                            <th data-sort="room">Комната размещения</th>
-                            <th></th>
-                        </tr>
-                    </thead>
-                    <tbody></tbody>
-                </table>
-            </div>
+        <div class="grid-wrapper">
+            <h2 class="table-header">Техника</h2>
+            <div id="gridTechnicContainer"></div>
         </div>
 
-        <div class="table-wrapper">
-            <div class="table-wrapper">
-                <h2 class="table-header">Типы техники</h2>
-                <div class="table-wrapper">
-                    <table id="typesTable" class="table">
-                        <thead>
-                            <tr>
-                                <th>Номер</th>
-                                <th>Наименование типа</th>
-                            </tr>
-                        </thead>
-                        <tbody></tbody>
-                    </table>
-                </div>
-            </div>
-        </div>
-
-
-    </div>
-
-    <div id="technicDialog" class="modal-overlay" hidden>
-        <div class="modal-card form-card">
-            <h2 id="dialogTitle" class="table-header">Добавление техники</h2>
-            <form id="technicEditForm">
-                <div class="form-grid">
-                    <div class="form-group">
-                        <label for="editAccount">Учётный номер</label>
-                        <input id="editAccount" type="text" maxlength="32">
-                    </div>
-                    <div class="form-group">
-                        <label for="editRoom">Комната размещения</label>
-                        <input id="editRoom" type="number" min="1" max="1000">
-                    </div>
-                    <div class="form-group">
-                        <label for="editName">Наименование</label>
-                        <input id="editName" type="text" maxlength="256">
-                    </div>
-                    <div class="form-group">
-                        <label for="editType">Тип техники</label>
-                        <select id="editType"></select>
-                    </div>
-                </div>
-                <div class="form-actions">
-                    <button id="saveTechnic" type="button" class="btn btn-primary">Сохранить</button>
-                    <button id="cancelDialog" type="button" class="btn btn-secondary">Отмена</button>
-                </div>
-            </form>
+        <div class="grid-wrapper">
+            <h2 class="table-header">Типы</h2>
+            <div id="gridTechnicTypeContainer"></div>
         </div>
     </div>
 
-    <script src="js/common.js"></script>
     <script src="js/app.js"></script>
 </body>
 

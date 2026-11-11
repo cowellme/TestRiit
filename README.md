@@ -30,7 +30,9 @@ docker compose up -d --build
 | API        | http://localhost:8080/api/technic      |
 | PostgreSQL | localhost:5432 (hardware / hardware)    |
 
-БД создаётся автоматически при первом старте backend (`EnsureCreated`) и заполняется демо-данными.
+Схема БД применяется автоматически при старте backend через EF Core Migrations (`Database.Migrate()`), после чего, если словарь типов пуст, он заполняется демо-позициями (`DatabaseInitializer`).
+
+Если БД была создана до перехода на миграции (старый volume через `EnsureCreated`), пересоздайте её: `docker compose down -v && docker compose up -d --build`.
 
 ## Запуск без Docker
 

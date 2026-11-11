@@ -19,18 +19,41 @@ body {
 }
 
 .header-links {
+    width: 100%;
     display: flex;
     align-items: center;
     margin-left: 200px;
 }
 
 .link {
+    position: relative;
+    text-align: center;
     text-decoration: none;
     font-size: 17px;
-    margin-right: 60px;
+    margin: 20px;
     color: black !important;
+    transition: color 0.25s ease;
 }
 
+.link::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    bottom: -4px;
+    width: 0;
+    height: 2px;
+    background: currentColor;
+    transform: translateX(-50%);
+    transition: width 0.25s ease;
+}
+
+.link:hover {
+    color: #3b6fd4 !important;
+}
+
+.link:hover::after {
+    width: 100%;
+}
 .app {
     position: relative;
     transform: translate(-50%, 0);
@@ -109,4 +132,40 @@ body {
 
 .form-actions{
     margin-top: 10px;
+}
+
+.grid-wrapper {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-bottom: 24px;
+}
+
+.dx-datagrid {
+    font-family: "Raleway", sans-serif;
+}
+
+.btn-telegram {
+    margin-top: 20px;
+    background: #2aabee;
+    color: #ffffff;
+}
+
+.btn-telegram:hover {
+    background: #229ed9;
+    color: #ffffff;
+}
+
+.btn-call {
+    margin-top: 20px;
+    background: #25d366 !important;
+    border-color: #1ebe5d !important;
+    color: #ffffff;
+}
+
+.btn-call:hover {
+    background: #1ebe5d !important;
+    border-color: #1ebe5d !important;
+    color: #ffffff;
 }

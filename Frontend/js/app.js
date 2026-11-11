@@ -1,234 +1,298 @@
 $(function () {
     "use strict";
 
-    var typesMap = {};
-    var allRows = [];
-    var editingId = null;
-    var sortState = { field: "account", dir: 1 };
+    var API_URL = "http://localhost:8080/api/technic";
+    var TYPES_URL = "http://localhost:8080/api/technicType";
 
-    function fillTypeSelect() {
-        var $select = $("#editType").empty();
-        $select.append($("<option>").val("").text("Выберите тип"));
+    function request(url, options) {
+        return $.ajax($.extend({ url: url, dataType: "json" }, options))
+            .fail(function (xhr) {
+                var message = xhr.responseJSON
+                    ? (xhr.responseJSON.title || xhr.responseJSON.detail || JSON.stringify(xhr.responseJSON))
+                    : xhr.statusText;
+                DevExpress.ui.notify(message || "Ошибка запроса к серверу", "error", 5000);
+            });
+    }
 
-        Object.keys(typesMap)
-            .map(Number)
-            .sort(function (a, b) {
-                return typesMap[a].localeCompare(typesMap[b], "ru");
+    var typesStore = new DevExpress.data.CustomStore({
+        key: "id",
+        loadMode: "raw",
+        load: function () {
+            return request(TYPES_URL);
+        },
+        insert: function (values) {
+            return request(TYPES_URL, {
+                method: "POST",
+                contentType: "application/json",
+                data: JSON.stringify(toPayload(values))
             })
-            .forEach(function (id) {
-                $select.append($("<option>").val(id).text(typesMap[id]));
+        },
+        update: function (key, values) {
+            return request(TYPES_URL + "/" + encodeURIComponent(key), {
+                method: "PUT",
+                contentType: "application/json",
+                data: JSON.stringify(toPayload(values, key))
             });
-    }
-
-    function renderTypes(types) {
-        var $tbody = $("#typesTable tbody").empty();
-
-        if (!types || !types.length) {
-            App.showEmpty($tbody, 2);
-            return;
-        }
-
-        types.forEach(function (t) {
-            $tbody.append(App.buildRow([t.id, t.name]));
-        });
-    }
-
-    function sortValue(row, field) {
-        if (field === "type") {
-            return String(App.typeName(typesMap, row)).toLowerCase();
-        }
-
-        if (field === "room") {
-            return Number(row.roomNumber);
-        }
-
-        return String(row[field] || "").toLowerCase();
-    }
-
-    function updateSortIndicators() {
-        $("#technicTable th[data-sort]").each(function () {
-            var $th = $(this);
-            $th.removeClass("sorted-asc sorted-desc");
-
-            if ($th.attr("data-sort") === sortState.field) {
-                $th.addClass(sortState.dir === 1 ? "sorted-asc" : "sorted-desc");
-            }
-        });
-    }
-
-    function renderTechnic() {
-        var $tbody = $("#technicTable tbody").empty();
-
-        var rows = allRows.slice().sort(function (a, b) {
-            var va = sortValue(a, sortState.field);
-            var vb = sortValue(b, sortState.field);
-
-            if (va < vb) return -1 * sortState.dir;
-            if (va > vb) return 1 * sortState.dir;
-            return 0;
-        });
-
-        if (!rows.length) {
-            App.showEmpty($tbody, 5, "Нет данных");
-            return;
-        }
-
-        rows.forEach(function (r) {
-            var $tr = App.buildRow([
-                r.accountNumber,
-                App.typeName(typesMap, r),
-                r.name,
-                r.roomNumber
-            ]);
-
-            var $td = $("<td>").addClass("actions-cell");
-
-            $("<button>")
-                .addClass("btn btn-secondary btn-sm")
-                .text("Редактировать")
-                .on("click", function () {
-                    openEditDialog(r);
-                })
-                .appendTo($td);
-
-            $tr.append($td);
-            $tr.on("dblclick", function () {
-                openEditDialog(r);
+        },
+        remove: function (key) {
+            return request(TYPES_URL + "/" + encodeURIComponent(key), {
+                method: "DELETE"
             });
-            $tbody.append($tr);
-        });
-    }
-
-    function loadAll() {
-        $.when(
-            App.request(App.TYPES_URL),
-            App.request(App.API_URL)
-        ).done(function (typesResult, technicResult) {
-            var types = typesResult[0] || [];
-
-            typesMap = {};
-            types.forEach(function (t) {
-                typesMap[t.id] = t.name;
-            });
-
-            allRows = technicResult[0] || [];
-
-            renderTypes(types);
-            fillTypeSelect();
-            renderTechnic();
-            updateSortIndicators();
-        });
-    }
-
-    function openAddDialog() {
-        editingId = null;
-        $("#dialogTitle").text("Добавление техники");
-        $("#technicEditForm")[0].reset();
-        $("#technicDialog").prop("hidden", false);
-    }
-
-    function openEditDialog(row) {
-        editingId = row.id;
-        $("#dialogTitle").text("Редактирование техники №" + row.id);
-        $("#editAccount").val(row.accountNumber);
-        $("#editName").val(row.name);
-        $("#editType").val(row.technicTypeId);
-        $("#editRoom").val(row.roomNumber);
-        $("#technicDialog").prop("hidden", false);
-    }
-
-    function closeDialog() {
-        $("#technicDialog").prop("hidden", true);
-    }
-
-    function validateDialog() {
-        var account = $.trim($("#editAccount").val());
-        var name = $.trim($("#editName").val());
-        var typeId = $("#editType").val();
-        var room = $.trim($("#editRoom").val());
-
-        if (!/^[a-zA-Z0-9]{1,32}$/.test(account)) {
-            alert("Учётный номер: только цифры и латинские буквы, до 32 символов");
-            return false;
         }
+    });
 
-        if (!name || name.length > 256) {
-            alert("Укажите наименование (до 256 символов)");
-            return false;
-        }
-
-        if (!typeId) {
-            alert("Выберите тип техники");
-            return false;
-        }
-
-        if (!/^\d+$/.test(room) || +room < 1 || +room > 1000) {
-            alert("Комната размещения: целое число от 1 до 1000");
-            return false;
-        }
-
-        return true;
-    }
-
-    function saveTechnic() {
-        if (!validateDialog()) {
-            return;
-        }
-
+    function toPayload(values, key) {
         var payload = {
-            accountNumber: $.trim($("#editAccount").val()),
-            name: $.trim($("#editName").val()),
-            technicTypeId: Number($("#editType").val()),
-            roomNumber: Number($("#editRoom").val())
+            accountNumber: values.accountNumber,
+            name: values.name,
+            technicTypeId: values.technicTypeId,
+            roomNumber: values.roomNumber
         };
 
-        if (editingId != null) {
-            payload.id = editingId;
+        if (key != null) {
+            payload.id = key;
         }
 
-        var url = editingId == null
-            ? App.API_URL
-            : App.API_URL + "/" + encodeURIComponent(editingId);
-
-        var method = editingId == null ? "POST" : "PUT";
-
-        App.request(url, {
-            method: method,
-            contentType: "application/json",
-            data: JSON.stringify(payload)
-        }).done(function () {
-            closeDialog();
-            loadAll();
-        });
+        return payload;
     }
 
-    $("#technicTable").on("click", "th[data-sort]", function () {
-        var field = $(this).attr("data-sort");
-
-        if (sortState.field === field) {
-            sortState.dir = -sortState.dir;
-        } else {
-            sortState.field = field;
-            sortState.dir = 1;
+    var technicStore = new DevExpress.data.CustomStore({
+        key: "id",
+        loadMode: "raw",
+        load: function () {
+            return request(API_URL);
+        },
+        insert: function (values) {
+            return request(API_URL, {
+                method: "POST",
+                contentType: "application/json",
+                data: JSON.stringify(toPayload(values))
+            });
+        },
+        update: function (key, values) {
+            return request(API_URL + "/" + encodeURIComponent(key), {
+                method: "PUT",
+                contentType: "application/json",
+                data: JSON.stringify(toPayload(values, key))
+            });
+        },
+        remove: function (key) {
+            return request(API_URL + "/" + encodeURIComponent(key), {
+                method: "DELETE"
+            });
         }
-
-        renderTechnic();
-        updateSortIndicators();
     });
 
-    $("#technicEditForm").on("submit", function (e) {
-        e.preventDefault();
-    });
+    $("#gridTechnicContainer").dxDataGrid({
+        dataSource: technicStore,
+        keyExpr: "id",
+        showBorders: true,
+        columnAutoWidth: true,
+        remoteOperations: false,
+        width: "100%",
 
-    $("#addTechnicBtn").on("click", openAddDialog);
-    $("#saveTechnic").on("click", saveTechnic);
-    $("#cancelDialog").on("click", closeDialog);
+        sorting: { mode: "multiple" },
+        paging: { pageSize: 10 },
+        pager: {
+            showPageSizeSelector: true,
+            allowedPageSizes: [10, 20, 50],
+            showInfo: true
+        },
+        searchPanel: { visible: true, placeholder: "Поиск..." },
+        headerFilter: { visible: true },
 
-    $("#technicDialog").on("click", function (e) {
-        if (e.target === this) {
-            closeDialog();
+        columns: [
+            {
+                dataField: "accountNumber",
+                caption: "Учётный номер",
+                sortOrder: "asc"
+            },
+            {
+                dataField: "technicTypeId",
+                caption: "Тип техники",
+                lookup: {
+                    dataSource: typesStore,
+                    valueExpr: "id",
+                    displayExpr: "name"
+                }
+            },
+            {
+                dataField: "name",
+                caption: "Наименование"
+            },
+            {
+                dataField: "roomNumber",
+                caption: "Комната размещения",
+                alignment: "center"
+            },
+            {
+                type: "buttons",
+                width: 90,
+                buttons: ["edit", "delete"]
+            }
+        ],
+
+        toolbar: {
+            items: [
+                { name: "addRowButton", showText: "always", location: "after" },
+                { name: "columnChooserButton", location: "after" }
+            ]
+        },
+
+        editing: {
+            mode: "popup",
+            allowAdding: true,
+            allowUpdating: true,
+            allowDeleting: true,
+            useIcons: true,
+            texts: {
+                addRow: "Добавить",
+                editRow: "Изменить",
+                saveRowChanges: "Сохранить",
+                cancelRowChanges: "Отмена",
+                deleteRowChanges: "Удвалить",
+            },
+            popup: {
+                title: "Карточка техники",
+                showTitle: true,
+                width: 600,
+                height: "auto"
+            },
+            form: {
+                colCount: 2,
+                items: [
+                    {
+                        dataField: "accountNumber",
+                        validationRules: [
+                            { type: "required", message: "Укажите учётный номер" },
+                            { type: "pattern", pattern: /^[a-zA-Z0-9]+$/, message: "Только цифры и латинские буквы" },
+                            { type: "stringLength", max: 32, message: "Не более 32 символов" }
+                        ]
+                    },
+                    {
+                        dataField: "roomNumber",
+                        editorType: "dxNumberBox",
+                        editorOptions: {
+                            min: 1,
+                            max: 1000,
+                            showSpinButtons: true
+                        },
+                        validationRules: [
+                            { type: "required", message: "Укажите комнату" },
+                            { type: "range", min: 1, max: 1000, message: "От 1 до 1000" }
+                        ]
+                    },
+                    {
+                        dataField: "name",
+                        colSpan: 2,
+                        validationRules: [
+                            { type: "required", message: "Укажите наименование" },
+                            { type: "stringLength", max: 256, message: "Не более 256 символов" }
+                        ]
+                    },
+                    {
+                        dataField: "technicTypeId",
+                        colSpan: 2,
+                        editorType: "dxSelectBox",
+                        editorOptions: {
+                            dataSource: typesStore,
+                            valueExpr: "id",
+                            displayExpr: "name",
+                            searchEnabled: true,
+                            placeholder: "Выберите тип техники"
+                        },
+                        validationRules: [
+                            { type: "required", message: "Укажите тип техники" }
+                        ]
+                    }
+                ]
+            }
+        },
+
+        onRowDblClick: function (e) {
+            e.component.editRow(e.rowIndex);
         }
     });
 
-    loadAll();
+
+    $("#gridTechnicTypeContainer").dxDataGrid({
+        dataSource: typesStore,
+        keyExpr: "id",
+        showBorders: true,
+        columnAutoWidth: true,
+        remoteOperations: false,
+        width: "100%",
+
+        sorting: { mode: "multiple" },
+        paging: { pageSize: 10 },
+        pager: {
+            showPageSizeSelector: true,
+            allowedPageSizes: [10, 20, 50],
+            showInfo: true
+        },
+        searchPanel: { visible: true, placeholder: "Поиск..." },
+        headerFilter: { visible: true },
+
+        columns: [
+            {
+                dataField: "id",
+                caption: "ID",
+                sortOrder: "asc"
+            },
+            {
+                dataField: "name",
+                caption: "Наименование"
+            },
+            {
+                type: "buttons",
+                width: 90,
+                buttons: ["edit", "delete"]
+            }
+        ],
+
+        toolbar: {
+            items: [
+                { name: "addRowButton", showText: "always", location: "after" }
+            ]
+        },
+
+        editing: {
+            mode: "popup",
+            allowAdding: true,
+            allowUpdating: true,
+            allowDeleting: true,
+            useIcons: true,
+            texts: {
+                addRow: "Добавить",
+                editRow: "Изменить",
+                saveRowChanges: "Сохранить",
+                cancelRowChanges: "Отмена",
+                deleteRowChanges: "Удалить"
+            },
+            popup: {
+                title: "Карточка типа",
+                showTitle: true,
+                width: 600,
+                height: "auto"
+            },
+            form: {
+                colCount: 2,
+                items: [
+                    {
+                        dataField: "name",
+                        colSpan: 2,
+                        validationRules: [
+                            { type: "required", message: "Укажите наименование" },
+                            { type: "stringLength", max: 256, message: "Не более 256 символов" }
+                        ]
+                    }
+                ]
+            }
+        },
+
+        onRowDblClick: function (e) {
+            e.component.editRow(e.rowIndex);
+        }
+    });
+
 });
