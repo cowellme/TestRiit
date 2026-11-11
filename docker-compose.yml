@@ -1,0 +1,53 @@
+name: riit-tesst
+
+services:
+
+  db:
+    image: postgres:16-alpine
+    container_name: hardware-db
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: hardware
+      POSTGRES_USER: hardware
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-hardware}
+    ports:
+      - "5432:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U hardware -d hardware"]
+      interval: 5s
+      timeout: 5s
+      retries: 12
+
+  backend:
+    build:
+      context: ./Bakcend
+      dockerfile: Bakcend/Dockerfile
+    container_name: hardware-api
+    restart: unless-stopped
+    depends_on:
+      db:
+        condition: service_healthy
+    environment:
+      ASPNETCORE_ENVIRONMENT: Development
+      ASPNETCORE_HTTP_PORTS: "8080"
+      ConnectionStrings__Default: "Host=db;Port=5432;Database=hardware;Username=hardware;Password=${POSTGRES_PASSWORD:-hardware}"
+      TZ: Europe/Moscow
+    ports:
+      - "8080:8080"
+
+  client:
+    image: nginx:1.27-alpine
+    container_name: hardware-ui
+    restart: unless-stopped
+    depends_on:
+      - backend
+    volumes:
+      - ./Frontend:/usr/share/nginx/html:ro
+      - ./nginx.conf:/etc/nginx/conf.d/default.conf:ro
+    ports:
+      - "8090:80"
+
+volumes:
+  pgdata:
