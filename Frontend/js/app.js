@@ -1,8 +1,8 @@
 $(function () {
     "use strict";
 
-    var API_URL = "http://localhost:8080/api/technic";
-    var TYPES_URL = "http://localhost:8080/api/technicType";
+    var API_URL = "http://localhost:8082/api/technic";
+    var TYPES_URL = "http://localhost:8082/api/technicType";
 
     function request(url, options) {
         return $.ajax($.extend({ url: url, dataType: "json" }, options))
