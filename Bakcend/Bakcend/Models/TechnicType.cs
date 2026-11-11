@@ -13,7 +13,7 @@ public class TechnicType
     private string _name = string.Empty;
 
     [Required]
-    [MaxLength(128)]
+    [MaxLength(256)]
     public string Name
     {
         get => _name;

@@ -11,12 +11,12 @@
       "RelativeMoniker": "D:0:0:{D6DFDC62-5640-4991-B67C-517D96927FB8}|Bakcend\\Backend.csproj|solutionrelative:bakcend\\controllers\\techniccontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{D6DFDC62-5640-4991-B67C-517D96927FB8}|Bakcend\\Backend.csproj|c:\\users\\user\\desktop\\riit\\bakcend\\bakcend\\data\\appdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D6DFDC62-5640-4991-B67C-517D96927FB8}|Bakcend\\Backend.csproj|solutionrelative:bakcend\\data\\appdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{D6DFDC62-5640-4991-B67C-517D96927FB8}|Bakcend\\Backend.csproj|c:\\users\\user\\desktop\\riit\\bakcend\\bakcend\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{D6DFDC62-5640-4991-B67C-517D96927FB8}|Bakcend\\Backend.csproj|solutionrelative:bakcend\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D6DFDC62-5640-4991-B67C-517D96927FB8}|Bakcend\\Backend.csproj|c:\\users\\user\\desktop\\riit\\bakcend\\bakcend\\services\\technictypeservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D6DFDC62-5640-4991-B67C-517D96927FB8}|Bakcend\\Backend.csproj|solutionrelative:bakcend\\services\\technictypeservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -26,7 +26,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 6,
+          "SelectedChildIndex": 7,
           "Children": [
             {
               "$type": "Bookmark",
@@ -50,15 +50,29 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "AppDbContext.cs",
-              "DocumentMoniker": "C:\\Users\\user\\Desktop\\RIIT\\Bakcend\\Bakcend\\Data\\AppDbContext.cs",
-              "RelativeDocumentMoniker": "Bakcend\\Data\\AppDbContext.cs",
-              "ToolTip": "C:\\Users\\user\\Desktop\\RIIT\\Bakcend\\Bakcend\\Data\\AppDbContext.cs",
-              "RelativeToolTip": "Bakcend\\Data\\AppDbContext.cs",
-              "ViewState": "AgIAAAUAAAAAAAAAAAAxwA4AAAAAAAAAAAAAAA==",
+              "DocumentIndex": 1,
+              "Title": "TechnicController.cs",
+              "DocumentMoniker": "C:\\Users\\user\\Desktop\\RIIT\\Bakcend\\Bakcend\\Controllers\\TechnicController.cs",
+              "RelativeDocumentMoniker": "Bakcend\\Controllers\\TechnicController.cs",
+              "ToolTip": "C:\\Users\\user\\Desktop\\RIIT\\Bakcend\\Bakcend\\Controllers\\TechnicController.cs",
+              "RelativeToolTip": "Bakcend\\Controllers\\TechnicController.cs",
+              "ViewState": "AgIAADsAAAAAAAAAAAAIwFYAAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-11-11T12:36:05.836Z"
+              "WhenOpened": "2026-11-11T14:01:36.6Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\user\\Desktop\\RIIT\\Bakcend\\Bakcend\\Program.cs",
+              "RelativeDocumentMoniker": "Bakcend\\Program.cs",
+              "ToolTip": "C:\\Users\\user\\Desktop\\RIIT\\Bakcend\\Bakcend\\Program.cs",
+              "RelativeToolTip": "Bakcend\\Program.cs",
+              "ViewState": "AgIAABMAAAAAAAAAAAAgwDAAAABFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-11-11T14:00:02.188Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
@@ -68,34 +82,23 @@
               "RelativeDocumentMoniker": "Bakcend\\Controllers\\TechnicTypeController.cs",
               "ToolTip": "C:\\Users\\user\\Desktop\\RIIT\\Bakcend\\Bakcend\\Controllers\\TechnicTypeController.cs",
               "RelativeToolTip": "Bakcend\\Controllers\\TechnicTypeController.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAATAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-11-11T12:15:53.831Z",
+              "WhenOpened": "2026-11-11T13:49:57.593Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "TechnicController.cs",
-              "DocumentMoniker": "C:\\Users\\user\\Desktop\\RIIT\\Bakcend\\Bakcend\\Controllers\\TechnicController.cs",
-              "RelativeDocumentMoniker": "Bakcend\\Controllers\\TechnicController.cs",
-              "ToolTip": "C:\\Users\\user\\Desktop\\RIIT\\Bakcend\\Bakcend\\Controllers\\TechnicController.cs",
-              "RelativeToolTip": "Bakcend\\Controllers\\TechnicController.cs",
-              "ViewState": "AgIAAC8AAAAAAAAAAAAwwEAAAAAhAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-11-11T12:15:38.408Z"
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 3,
-              "Title": "Program.cs",
-              "DocumentMoniker": "C:\\Users\\user\\Desktop\\RIIT\\Bakcend\\Bakcend\\Program.cs",
-              "RelativeDocumentMoniker": "Bakcend\\Program.cs",
-              "ToolTip": "C:\\Users\\user\\Desktop\\RIIT\\Bakcend\\Bakcend\\Program.cs",
-              "RelativeToolTip": "Bakcend\\Program.cs",
-              "ViewState": "AgIAAAMAAAAAAAAAAAAAAAcAAAABAAAAAAAAAA==",
+              "Title": "TechnicTypeService.cs",
+              "DocumentMoniker": "C:\\Users\\user\\Desktop\\RIIT\\Bakcend\\Bakcend\\Services\\TechnicTypeService.cs",
+              "RelativeDocumentMoniker": "Bakcend\\Services\\TechnicTypeService.cs",
+              "ToolTip": "C:\\Users\\user\\Desktop\\RIIT\\Bakcend\\Bakcend\\Services\\TechnicTypeService.cs",
+              "RelativeToolTip": "Bakcend\\Services\\TechnicTypeService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-11-11T12:14:26.513Z"
+              "WhenOpened": "2026-11-11T13:49:53.881Z",
+              "EditorCaption": ""
             }
           ]
         }

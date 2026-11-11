@@ -35,16 +35,25 @@
             <summary>
             Контроллер типов техники
             </summary>
-            <param name="types"></param>
+            <param name="service"></param>
         </member>
-        <member name="M:Backend.Controllers.TechnicTypeController.#ctor(Backend.Services.IRepository{Backend.Models.TechnicType,System.Int32})">
+        <member name="M:Backend.Controllers.TechnicTypeController.#ctor(Backend.Services.ITechnicTypeService)">
             <summary>
             Контроллер типов техники
             </summary>
-            <param name="types"></param>
+            <param name="service"></param>
         </member>
         <member name="M:Backend.Controllers.TechnicTypeController.GetAll(System.Threading.CancellationToken)">
             <summary>Список всех типов</summary>
+        </member>
+        <member name="M:Backend.Controllers.TechnicTypeController.Create(Backend.Models.TechnicType,System.Threading.CancellationToken)">
+            <summary>Добавление типов техники</summary>
+        </member>
+        <member name="M:Backend.Controllers.TechnicTypeController.Update(System.Int32,Backend.Models.TechnicType,System.Threading.CancellationToken)">
+            <summary>Обновление типов техники</summary>
+        </member>
+        <member name="M:Backend.Controllers.TechnicTypeController.Delete(System.Int32,System.Threading.CancellationToken)">
+            <summary>Удаление типов техники</summary>
         </member>
         <member name="T:Backend.Migrations.InitialCreate">
             <inheritdoc />
