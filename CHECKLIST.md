@@ -91,7 +91,7 @@
 | 6.1 | Шаблонный `Bakcend/Bakcend/WeatherForecast.cs` остался в проекте и даёт предупреждения CS1591 (включены XML-комментарии для Swagger) | Удалить файл или добавить `<NoWarn>1591</NoWarn>` в csproj |
 | 6.2 | `TechnicTypeController` работает напрямую с `IRepository`, а `TechnicController` — через `ITechnicService`; написанный `ITechnicTypeService` не используется и не зарегистрирован в DI | Привести к единому стилю: Controller → Service → Repository |
 | 6.3 | Ошибки возвращаются как `BadRequest(new { title = ex.Message })` — текст технический (например, для дубликата номера) | Для дубликата — `Conflict(new { title = "Учётный номер уже существует" })` через перехват `DbUpdateException`; для остального — свои сообщения |
-| 6.4 | API-адрес захардкожен как `http://localhost:8080` (`Frontend/js/common.js`, `Frontend/js/app.js`) | Для Docker-режима через nginx можно относительный `/api/technic` |
+| 6.4 | API-адрес в клиенте | ✅ Решено: относительный `/api/...` (запросы идут через nginx-прокси на любой машине), абсолютный `http://localhost:8080` — только при открытии через `file://` (`Frontend/js/app.js`, `Frontend/js/common.js`) |
 | 6.5 | Ошибка «object cycle» при сериализации (была ранее) | ✅ Снята: навигация `TechnicType.Equipments` удалена из моделей, циклов в графе больше нет |
 
 ---

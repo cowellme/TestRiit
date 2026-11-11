@@ -1,6 +1,8 @@
+var API_BASE = window.location.protocol === "file:" ? "http://localhost:8080" : "";
+
 window.App = {
-    API_URL: "http://localhost:8080/api/technic",
-    TYPES_URL: "http://localhost:8080/api/technicType",
+    API_URL: API_BASE + "/api/technic",
+    TYPES_URL: API_BASE + "/api/technicType",
 
     request: function (url, options) {
         return $.ajax($.extend({ url: url, dataType: "json" }, options))
