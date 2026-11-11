@@ -1,7 +1,7 @@
 $(function () {
     "use strict";
 
-    var API_BASE = window.location.protocol === "file:" ? "http://localhost:8080" : "";
+    var API_BASE = window.location.protocol === "file:" ? "http://localhost:8082" : "";
     var API_URL = API_BASE + "/api/technic";
     var TYPES_URL = API_BASE + "/api/technicType";
 
@@ -15,11 +15,17 @@ $(function () {
             });
     }
 
+    var typesRows = {};
     var typesStore = new DevExpress.data.CustomStore({
         key: "id",
         loadMode: "raw",
         load: function () {
-            return request(TYPES_URL);
+            return request(TYPES_URL).done(function (rows) {
+                typesRows = {};
+                (rows || []).forEach(function (r) {
+                    typesRows[r.id] = r;
+                });
+            });
         },
         insert: function (values) {
             return request(TYPES_URL, {
@@ -57,11 +63,18 @@ $(function () {
         return payload;
     }
 
+    var technicRows = {};
+
     var technicStore = new DevExpress.data.CustomStore({
         key: "id",
         loadMode: "raw",
         load: function () {
-            return request(API_URL);
+            return request(API_URL).done(function (rows) {
+                technicRows = {};
+                (rows || []).forEach(function (r) {
+                    technicRows[r.id] = r;
+                });
+            });
         },
         insert: function (values) {
             return request(API_URL, {
@@ -71,10 +84,11 @@ $(function () {
             });
         },
         update: function (key, values) {
+            var merged = $.extend({}, technicRows[key] || {}, values);
             return request(API_URL + "/" + encodeURIComponent(key), {
                 method: "PUT",
                 contentType: "application/json",
-                data: JSON.stringify(toPayload(values, key))
+                data: JSON.stringify(toPayload(merged, key))
             });
         },
         remove: function (key) {
@@ -83,6 +97,7 @@ $(function () {
             });
         }
     });
+
 
     $("#gridTechnicContainer").dxDataGrid({
         dataSource: technicStore,
@@ -111,6 +126,17 @@ $(function () {
             {
                 dataField: "technicTypeId",
                 caption: "Тип техники",
+                cellTemplate: function (container, options) {
+                    var id = options.value;
+                    var found = typesRows[id];
+
+                    if (!found) {
+                        container.text("Неизвестный тип");
+                        return;
+                    }
+                    var name = (found.name == null) ? "" : String(found.name).trim();
+                    container.text(name === "" ? "Неизвестный тип" : found.name);
+                },
                 lookup: {
                     dataSource: typesStore,
                     valueExpr: "id",

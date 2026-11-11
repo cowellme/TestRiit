@@ -126,3 +126,4 @@ C:\Users\user\Desktop\RIIT\Bakcend\Bakcend\bin\Debug\net10.0\Swashbuckle.AspNetC
 C:\Users\user\Desktop\RIIT\Bakcend\Bakcend\bin\Debug\net10.0\Swashbuckle.AspNetCore.SwaggerUI.dll
 C:\Users\user\Desktop\RIIT\Bakcend\Bakcend\obj\Debug\net10.0\Backend.sourcelink.json
 C:\Users\user\Desktop\RIIT\Bakcend\Bakcend\obj\Debug\net10.0\Backend.xml
+C:\Users\user\Desktop\RIIT\Bakcend\Bakcend\obj\Debug\net10.0\staticwebassets.upToDateCheck.txt
