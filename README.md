@@ -13,6 +13,10 @@
 | СУБД      | PostgreSQL 16 (требование задания: ≥ 12)            |
 | Раздача UI| nginx (статику + проксирование `/api/` на backend)  |
 
+## Бизнес логика
+
+![Процесс «Ведение реестра»](docs/diagram.png)
+
 ## Структура
 
 - `Bakcend/` — REST API (`/api/technic` CRUD, `/api/technicType` справочник типов)
