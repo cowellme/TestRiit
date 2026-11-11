@@ -1,1 +1,3 @@
-Bakcend/.vs
+**/.vs/
+**/bin/
+**/obj/

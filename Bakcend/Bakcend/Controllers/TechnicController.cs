@@ -11,11 +11,16 @@ namespace Backend.Controllers
     /// <param name="service"></param>
     [ApiController]
     [Route("api/[controller]")]
-    public class TechnicController(ITechnicService service) : ControllerBase
+    public class TechnicController(ITechnicService service, ILogger<TechnicController> logger) : ControllerBase
     {
         /// <summary>Список всей техники</summary>
         [HttpGet]
-        public Task<IReadOnlyList<Technic>> GetAll(CancellationToken ct) => service.GetAll(ct);
+        public async Task<ActionResult<IReadOnlyList<Technic>>> GetAll(CancellationToken ct)
+        {
+            var items = await service.GetAll(ct);
+            logger.LogInformation("Успешное получение списка техники");
+            return items is { Count: > 0 } ? Ok(items) : NotFound(new { title = "Техника не найдена" });
+        }
 
         /// <summary>Получение техники по ID</summary>
         [HttpGet("{id:int}")]
@@ -28,6 +33,7 @@ namespace Backend.Controllers
             }
             catch (Exception ex)
             {
+                logger.LogError(ex, "Ошибка при получении техники");
                 return BadRequest(new { title = ex.Message});
             }
         }
@@ -43,10 +49,13 @@ namespace Backend.Controllers
             }
             catch (DbUpdateException)
             {
-                return Conflict(new { title = "Учётный номер уже существует" });
+                const string message = "Учётный номер уже существует";
+                logger.LogWarning(message);
+                return Conflict(new { title = message });
             }
             catch (Exception ex)
             {
+                logger.LogError(ex, "Ошибка при добавлении техники");
                 return BadRequest(new { title = ex.Message });
             }
         }
@@ -59,14 +68,18 @@ namespace Backend.Controllers
             {
                 if (id != item.Id)
                 {
-                    return BadRequest(new { title = "ID не совпадает." });
+                    const string message = "ID не совпадает";
+                    logger.LogWarning(message);
+                    return BadRequest(new { title = message });
                 }
 
                 await service.Update(item, ct);
+                logger.LogInformation("Успешное обновление техники");
                 return Ok(item);
             }
             catch (Exception ex)
-            {
+            {   
+                logger.LogError(ex, "Ошибка при обновлении техники");
                 return BadRequest(new { title = ex.Message });
             }
         }
@@ -78,10 +91,12 @@ namespace Backend.Controllers
             try
             {
                 var deleted = await service.Delete(id, ct);
+                logger.LogInformation("Успешное удаление техники");
                 return deleted ? Ok(true) : NotFound();
             }
             catch (Exception ex)
             {
+                logger.LogError(ex, "Ошибка при удалении техники");
                 return BadRequest(new { title = ex.Message });
             }
         }

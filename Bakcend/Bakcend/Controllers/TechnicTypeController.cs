@@ -10,11 +10,16 @@ namespace Backend.Controllers
     /// <param name="service"></param>
     [ApiController]
     [Route("api/[controller]")]
-    public class TechnicTypeController(ITechnicTypeService service) : ControllerBase
+    public class TechnicTypeController(ITechnicTypeService service, ILogger<TechnicTypeController> logger) : ControllerBase
     {
         /// <summary>Список всех типов</summary>
         [HttpGet]
-        public async Task<IReadOnlyList<TechnicType>> GetAll(CancellationToken ct) => await service.GetAll(ct);
+        public async Task<ActionResult<IReadOnlyList<TechnicType>>> GetAll(CancellationToken ct)
+        {
+            var items = await service.GetAll(ct);
+            logger.LogInformation("Успешное получение списка типов техники");
+            return items is { Count: > 0 } ? Ok(items) : NotFound(new { title = "Типы техники не найдены" });
+        }
 
         /// <summary>Добавление типов техники</summary>
         [HttpPost]
@@ -23,10 +28,12 @@ namespace Backend.Controllers
             try
             {
                 var created = await service.Add(item, ct);
+                logger.LogInformation("Успешное добавление типа техники");
                 return Ok(created);
             }
             catch (Exception ex)
             {
+                logger.LogError(ex, "Ошибка при добавлении типа техники");
                 return BadRequest(new { title = ex.Message });
             }
         }
@@ -39,14 +46,18 @@ namespace Backend.Controllers
             {
                 if (id != item.Id)
                 {
-                    return BadRequest(new { title = "ID не совпадает." });
+                    var message = "ID не совпадает";
+                    logger.LogWarning(message);
+                    return BadRequest(new { title = message });
                 }
 
                 await service.Update(item, ct);
+                logger.LogInformation("Успешное обновление типа техники");
                 return Ok(item);
             }
             catch (Exception ex)
             {
+                logger.LogError(ex, "Ошибка при обновлении типа техники");
                 return BadRequest(new { title = ex.Message });
             }
         }
@@ -58,10 +69,12 @@ namespace Backend.Controllers
             try
             {
                 var deleted = await service.Delete(id, ct);
+                logger.LogInformation("Успешное удаление типа техники");
                 return deleted ? Ok(true) : NotFound();
             }
             catch (Exception ex)
             {
+                logger.LogError(ex, "Ошибка при удалении типа техники");
                 return BadRequest(new { title = ex.Message });
             }
         }

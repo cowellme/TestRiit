@@ -7,7 +7,6 @@ namespace Backend.Services
         Task<IReadOnlyList<Technic>> GetAll(CancellationToken cancellationToken);
         Task<Technic?> GetById(int id, CancellationToken cancellationToken);
         Task<Technic> Add(Technic technic, CancellationToken cancellationToken);
-        
         Task<bool> Update(Technic technic, CancellationToken cancellationToken);
         Task<bool> Delete(int id, CancellationToken cancellationToken);
         Task AddRange(List<Technic> found, CancellationToken ct);
@@ -25,7 +24,7 @@ namespace Backend.Services
         {
             if (await repository.CountAsync(cancellationToken) >= 2000)
             {
-                throw new InvalidOperationException("Достигнут лимит: не более 2000 записей в БД");
+                throw new InvalidOperationException("Лимит не более 2000 записей");
             }
 
             return await repository.AddAsync(technic, cancellationToken);
@@ -41,7 +40,7 @@ namespace Backend.Services
         {
             if (await repository.CountAsync(cancellationToken) + found.Count >= 2000)
             {
-                throw new InvalidOperationException("Достигнут лимит: не более 2000 записей в БД");
+                throw new InvalidOperationException("Лимит не более 2000 записей");
             }
 
             await repository.AddRangeAsync(found, cancellationToken);
