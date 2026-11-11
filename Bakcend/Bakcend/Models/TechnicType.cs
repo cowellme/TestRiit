@@ -1,4 +1,4 @@
-﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Backend.Models;
@@ -13,7 +13,7 @@ public class TechnicType
     private string _name = string.Empty;
 
     [Required]
-    [MaxLength(256)]
+    [MaxLength(128)]
     public string Name
     {
         get => _name;

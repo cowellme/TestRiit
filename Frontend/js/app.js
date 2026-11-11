@@ -151,7 +151,9 @@ $(function () {
                 editRow: "Изменить",
                 saveRowChanges: "Сохранить",
                 cancelRowChanges: "Отмена",
-                deleteRowChanges: "Удвалить",
+                deleteRow: "Удалить",
+                confirmDeleteMessage: "Удалить выбранную запись?",
+                confirmDeleteTitle: "Удаление"
             },
             popup: {
                 title: "Карточка техники",
@@ -284,7 +286,7 @@ $(function () {
                         colSpan: 2,
                         validationRules: [
                             { type: "required", message: "Укажите наименование" },
-                            { type: "stringLength", max: 256, message: "Не более 256 символов" }
+                            { type: "stringLength", max: 128, message: "Не более 128 символов" }
                         ]
                     }
                 ]
